@@ -15,4 +15,15 @@ abstract class Di
 		}
 		return self::$db_instance;		
 	}
+	
+	class Article 
+	{
+		private $database;
+	
+		public function __construct($database)
+	{
+			$this->database = $database;
+		}
+	}
+	
 }
