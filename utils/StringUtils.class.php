@@ -2,6 +2,18 @@
 
 abstract class StringUtils
 {	
+	//An implementation of the PHP method "strrev()"
+	public static function reverse($str)
+	{
+		$len = strlen($str);
+		$rev = "";
+		for ($i = $len; $i >= 0; $i--)
+		{
+			$rev .= $str[$i];
+		}
+		return $rev;
+	}
+	
 	public static function isAnagram()
 	{
 		$wrd_1 = strtolower($wrd_1);
