@@ -7,6 +7,20 @@ abstract class FSUtils
 	public static $files = array();
 	public static $firstDir = "";
 
+	public static function findMiddle()
+	{
+		$middle = filesize($file) / 2;
+		$thefile = fopen($file, "r");
+		$read = 0;
+		while (($buffer=fgets($thefile)) !== false) {
+			$read += strlen($buffer);
+			if ($read>$middle) {
+				return array($pos, $buffer);
+			}
+			$pos = ftell($thefile);
+		}
+	}
+
 	public static function getExtension($filepath)
 	{
 		return pathinfo($filepath, PATHINFO_EXTENSION);
