@@ -14,6 +14,25 @@ abstract class StringUtils
 		return $rev;
 	}
 	
+	public static function isPalindrome($str)
+	{
+		$len = strlen($str); //Length
+		for ($i = 0; $i < $len; $i++)
+		{
+		    $c = substr($str, $i, 1);            
+		    if (ctype_alpha($c)) $nstr .= $c; //Alphabetic character only
+		}
+		
+		$nstr = strtolower($nstr); //Lower case
+		//echo "nstr [" . $nstr . "]";        
+		$rev = strrev($nstr); //Reverse        
+		//echo "[" . $rev . "]";
+		
+		//Comparison
+		if (strcmp($nstr, $rev) == 0) return true;                
+		return false;
+	}
+	
 	public static function isAnagram()
 	{
 		$wrd_1 = strtolower($wrd_1);
