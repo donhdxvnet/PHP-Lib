@@ -7,6 +7,11 @@ abstract class FSUtils
 	public static $files = array();
 	public static $firstDir = "";
 
+	public static function getExtension($filepath)
+	{
+		return pathinfo($filepath, PATHINFO_EXTENSION);
+	}
+
 	public static function recursiveListDir($dir)
 	{
 		if ($opendir = opendir($dir))
