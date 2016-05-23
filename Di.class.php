@@ -1,7 +1,7 @@
 //Dependance Injection
 abstract class Di
 {
-	private static #db_instance = null;
+	private static $db_instance = null;
 
 	public static function getArticle()
 	{
