@@ -33,6 +33,11 @@ abstract class StringUtils
 		return false;
 	}
 	
+	/* TEST
+	echo self::isPalindrome('Noel sees Leon.') ? "True" : "False";
+	True
+	*/
+	
 	public static function isAnagram()
 	{
 		$wrd_1 = strtolower($wrd_1);
