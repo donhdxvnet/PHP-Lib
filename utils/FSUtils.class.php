@@ -7,6 +7,31 @@ abstract class FSUtils
 	public static $files = array();
 	public static $firstDir = "";
 
+	/**
+		* @param string $keyword The keyword to search for
+		* @param resource $file The file pointer, which points to a file successfully opened by fopen()
+		* @return array An array of strings
+	*/
+	public static function findLines($keyword, $file)
+	{
+		$result = array();
+		while ($line = fgets($file))
+		{
+		    //echo $line;
+		    $pos = strpos($line, $keyword);
+		    //echo $pos;
+		    if ($pos !== false) $result[] = trim($line);
+		}        
+		return $result;
+	}
+	
+	/* TEST
+	$stream = fopen('php://memory', 'r+');
+	fputs($stream, "Hello, there !!!\nHow are you today !!!?\nYes, you over there !!!");
+	rewind($stream);
+	print_r(self::findLines('there', $stream));
+	*/
+
 	public static function findMiddle()
 	{
 		$middle = filesize($file) / 2;
